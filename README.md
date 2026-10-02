@@ -32,7 +32,7 @@ No backend or installation is required.
 
 ## Live Demo
 
-https://YOUR-VERCEL-URL.vercel.app
+https://developer-resources-hub-git-main-saloni-07d6.vercel.app/
 
 ## Author
 
