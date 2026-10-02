@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learning Platform by Saloni Rajput</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="container nav-content">
+
+            <a href="#" class="logo">
+
+                <span class="logo-mark">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+
+                <span>Learning <b>Platform</b></span>
+
+            </a>
+
+            <div class="nav-actions">
+
+                <button
+                    class="theme-btn"
+                    id="themeButton"
+                    onclick="toggleTheme()">
+
+                    🌙 Dark
+
+                </button>
+
+                <a
+                    href="#add-resource"
+                    class="nav-add">
+
+                    + Add Resource
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <p class="eyebrow">
+                    LEARN • BUILD • GROW
+                </p>
+
+                <h1>
+
+                    Developer
+                    <span>Resource Hub</span>
+
+                </h1>
+
+                <p class="hero-description">
+
+                    A simple collection of useful resources for
+                    students and developers. Find tutorials,
+                    tools and learning material in one place.
+
+                </p>
+
+                <a
+                    href="#resources"
+                    class="primary-button">
+
+                    Explore Resources ↓
+
+                </a>
+
+            </div>
+
+
+            <!-- Decorative card -->
+
+            <div class="hero-card">
+
+                <div class="mini-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>
+                    Keep Learning
+                </h3>
+
+                <p>
+                    Web Dev • App Dev • AI/ML • Tools
+                </p>
+
+                <div class="color-line">
+
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RESOURCE SECTION ================= -->
+
+    <section
+        class="resources-section"
+        id="resources">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        RESOURCE LIBRARY
+                    </p>
+
+                    <h2>
+                        Find something useful
+                    </h2>
+
+                </div>
+
+                <p
+                    class="resource-count"
+                    id="resourceCount">
+
+                    0 resources
+
+                </p>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <span>
+                    ⌕
+                </span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by title, description or category..."
+                    oninput="displayResources()">
+
+            </div>
+
+
+            <!-- CATEGORY FILTER -->
+
+            <div class="filter-row">
+
+                <button
+                    class="filter-button active"
+                    onclick="filterResources('All', this)">
+
+                    All
+
+                </button>
+
+                <button
+                    class="filter-button"
+                    onclick="filterResources('Web Dev', this)">
+
+                    Web Dev
+
+                </button>
+
+                <button
+                    class="filter-button"
+                    onclick="filterResources('App Dev', this)">
+
+                    App Dev
+
+                </button>
+
+                <button
+                    class="filter-button"
+                    onclick="filterResources('AI/ML', this)">
+
+                    AI/ML
+
+                </button>
+
+                <button
+                    class="filter-button"
+                    onclick="filterResources('Tools', this)">
+
+                    Tools
+
+                </button>
+
+            </div>
+
+
+            <!-- RESOURCE CARDS -->
+
+            <div
+                class="resource-grid"
+                id="resourceList">
+            </div>
+
+
+            <!-- NO RESULTS -->
+
+            <div
+                class="no-results"
+                id="noResults">
+
+                <div>
+                    🔎
+                </div>
+
+                <h3>
+                    No resources found
+                </h3>
+
+                <p>
+                    Try another keyword or select a different category.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ADD RESOURCE ================= -->
+
+    <section
+        class="add-section"
+        id="add-resource">
+
+        <div class="container">
+
+            <div class="add-card">
+
+                <div class="add-intro">
+
+                    <p class="eyebrow">
+                        SHARE WITH THE COMMUNITY
+                    </p>
+
+                    <h2>
+                        Add a new resource
+                    </h2>
+
+                    <p>
+                        Found something useful?
+                        Add it to the learning hub.
+                        Your resource will be saved in this
+                        browser even after refreshing the page.
+                    </p>
+
+                </div>
+
+
+                <!-- FORM -->
+
+                <form id="resourceForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="title">
+                                Resource title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="title"
+                                placeholder="e.g. JavaScript Basics"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="category">
+                                Category
+                            </label>
+
+                            <select
+                                id="category"
+                                required>
+
+                                <option value="">
+                                    Choose category
+                                </option>
+
+                                <option value="Web Dev">
+                                    Web Dev
+                                </option>
+
+                                <option value="App Dev">
+                                    App Dev
+                                </option>
+
+                                <option value="AI/ML">
+                                    AI/ML
+                                </option>
+
+                                <option value="Tools">
+                                    Tools
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="description">
+                            Short description
+                        </label>
+
+                        <textarea
+                            id="description"
+                            rows="3"
+                            placeholder="What can someone learn from this resource?"
+                            required>
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="link">
+                            Resource link
+                        </label>
+
+                        <input
+                            type="url"
+                            id="link"
+                            placeholder="https://example.com"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-button">
+
+                        Add Resource +
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+
+                <h3>
+                    Learning Platform
+                </h3>
+
+                <p>
+                    By Saloni Rajput
+                </p>
+
+            </div>
+
+            <p>
+                Learn. Build. Grow. • 2026
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================================================= -->
+    <!-- JAVASCRIPT                                       -->
+    <!-- ================================================= -->
+
+    <script>
+
+        /*
+            DEFAULT RESOURCES
+
+            These six resources are built into the website.
+
+            They have default: true
+
+            Therefore they will NOT have a Delete button.
+        */
+
+        const defaultResources = [
+
+            {
+                id: 1,
+
+                title: "MDN HTML Basics",
+
+                category: "Web Dev",
+
+                description:
+                    "Learn HTML elements, page structure, forms and other web basics.",
+
+                link:
+                    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content",
+
+                votes: 12,
+
+                default: true
+            },
+
+
+            {
+                id: 2,
+
+                title: "CSS Flexbox Guide",
+
+                category: "Web Dev",
+
+                description:
+                    "Understand Flexbox and use it to create clean responsive layouts.",
+
+                link:
+                    "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+
+                votes: 9,
+
+                default: true
+            },
+
+
+            {
+                id: 3,
+
+                title: "JavaScript.info",
+
+                category: "Web Dev",
+
+                description:
+                    "A beginner-friendly guide for learning JavaScript.",
+
+                link:
+                    "https://javascript.info/",
+
+                votes: 15,
+
+                default: true
+            },
+
+
+            {
+                id: 4,
+
+                title: "Flutter Documentation",
+
+                category: "App Dev",
+
+                description:
+                    "Official documentation for learning Flutter and building applications.",
+
+                link:
+                    "https://docs.flutter.dev/",
+
+                votes: 7,
+
+                default: true
+            },
+
+
+            {
+                id: 5,
+
+                title: "Google AI for Developers",
+
+                category: "AI/ML",
+
+                description:
+                    "Explore learning resources and developer tools for AI and Gemini.",
+
+                link:
+                    "https://ai.google.dev/",
+
+                votes: 18,
+
+                default: true
+            },
+
+
+            {
+                id: 6,
+
+                title: "GitHub Skills",
+
+                category: "Tools",
+
+                description:
+                    "Interactive courses that help you learn GitHub through practice.",
+
+                link:
+                    "https://skills.github.com/",
+
+                votes: 11,
+
+                default: true
+            }
+
+        ];
+
+
+        /*
+            Get saved resources.
+
+            If the browser has no saved resources,
+            use the six default resources.
+        */
+
+        let resources =
+            JSON.parse(
+                localStorage.getItem("learningResources")
+            )
+            || defaultResources;
+
+
+        /*
+            Initially show all categories.
+        */
+
+        let selectedCategory = "All";
+
+
+        /* ================= SAVE DATA ================= */
+
+        function saveResources() {
+
+            localStorage.setItem(
+                "learningResources",
+                JSON.stringify(resources)
+            );
+
+        }
+
+
+        /* ================= DISPLAY RESOURCES ================= */
+
+        function displayResources() {
+
+            const list =
+                document.getElementById("resourceList");
+
+
+            const searchText =
+                document.getElementById("searchInput")
+                    .value
+                    .toLowerCase()
+                    .trim();
+
+
+            /*
+                Remove old cards.
+            */
+
+            list.innerHTML = "";
+
+
+            /*
+                Find resources matching
+                category and search.
+            */
+
+            const filteredResources =
+                resources.filter(function(resource) {
+
+                    const matchesCategory =
+                        selectedCategory === "All"
+                        ||
+                        resource.category === selectedCategory;
+
+
+                    const matchesSearch =
+                        resource.title
+                            .toLowerCase()
+                            .includes(searchText)
+
+                        ||
+
+                        resource.description
+                            .toLowerCase()
+                            .includes(searchText)
+
+                        ||
+
+                        resource.category
+                            .toLowerCase()
+                            .includes(searchText);
+
+
+                    return matchesCategory && matchesSearch;
+
+                });
+
+
+            /*
+                Update resource count.
+            */
+
+            document.getElementById("resourceCount").textContent =
+
+                filteredResources.length
+
+                +
+
+                (
+                    filteredResources.length === 1
+                    ? " resource"
+                    : " resources"
+                );
+
+
+            /*
+                Show no-result message.
+            */
+
+            document.getElementById("noResults").style.display =
+
+                filteredResources.length === 0
+                ? "block"
+                : "none";
+
+
+            /*
+                Create each resource card.
+            */
+
+            filteredResources.forEach(function(resource) {
+
+                const card =
+                    document.createElement("article");
+
+
+                card.className =
+                    "resource-card";
+
+
+                /*
+                    Delete button is shown ONLY
+                    for resources added by the user.
+
+                    Default resources have:
+                    default: true
+                */
+
+                let deleteButton = "";
+
+
+                if (!resource.default) {
+
+                    deleteButton = `
+
+                        <button
+                            class="delete-button"
+                            onclick="deleteResource(${resource.id})">
+
+                            Delete
+
+                        </button>
+
+                    `;
+
+                }
+
+
+                card.innerHTML = `
+
+                    <div class="card-top">
+
+                        <span class="category-tag">
+
+                            ${resource.category}
+
+                        </span>
+
+
+                        <button
+                            class="vote-button"
+                            onclick="upvoteResource(${resource.id})">
+
+                            ▲ ${resource.votes}
+
+                        </button>
+
+                    </div>
+
+
+                    <h3>
+
+                        ${resource.title}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${resource.description}
+
+                    </p>
+
+
+                    <div class="card-buttons">
+
+                        <a
+                            class="resource-link"
+                            href="${resource.link}"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            Visit Resource →
+
+                        </a>
+
+                        ${deleteButton}
+
+                    </div>
+
+                `;
+
+
+                list.appendChild(card);
+
+            });
+
+        }
+
+
+        /* ================= FILTER ================= */
+
+        function filterResources(category, button) {
+
+            /*
+                Store selected category.
+            */
+
+            selectedCategory =
+                category;
+
+
+            /*
+                Remove active class.
+            */
+
+            document
+                .querySelectorAll(".filter-button")
+                .forEach(function(item) {
+
+                    item.classList.remove("active");
+
+                });
+
+
+            /*
+                Add active class
+                to selected button.
+            */
+
+            button.classList.add("active");
+
+
+            /*
+                Display filtered resources.
+            */
+
+            displayResources();
+
+        }
+
+
+        /* ================= UPVOTE ================= */
+
+        function upvoteResource(id) {
+
+            resources.forEach(function(resource) {
+
+                if (resource.id === id) {
+
+                    resource.votes++;
+
+                }
+
+            });
+
+
+            saveResources();
+
+            displayResources();
+
+        }
+
+
+        /* ================= DELETE RESOURCE ================= */
+
+        function deleteResource(id) {
+
+            /*
+                Only user-added resources
+                are allowed to be deleted.
+            */
+
+            resources = resources.filter(
+                function(resource) {
+
+                    return resource.id !== id;
+
+                }
+            );
+
+
+            saveResources();
+
+            displayResources();
+
+        }
+
+
+        /* ================= DARK / LIGHT MODE ================= */
+
+        function toggleTheme() {
+
+            document.body.classList.toggle("dark");
+
+
+            const button =
+                document.getElementById("themeButton");
+
+
+            if (
+                document.body.classList.contains("dark")
+            ) {
+
+                button.textContent =
+                    "☀️ Light";
+
+
+                localStorage.setItem(
+                    "learningTheme",
+                    "dark"
+                );
+
+            }
+
+            else {
+
+                button.textContent =
+                    "🌙 Dark";
+
+
+                localStorage.setItem(
+                    "learningTheme",
+                    "light"
+                );
+
+            }
+
+        }
+
+
+        /* ================= ADD RESOURCE ================= */
+
+        document
+            .getElementById("resourceForm")
+            .addEventListener(
+                "submit",
+                function(event) {
+
+
+                    /*
+                        Stop page refresh.
+                    */
+
+                    event.preventDefault();
+
+
+                    /*
+                        Create new resource.
+                    */
+
+                    const newResource = {
+
+                        id:
+                            Date.now(),
+
+                        title:
+                            document
+                                .getElementById("title")
+                                .value
+                                .trim(),
+
+                        category:
+                            document
+                                .getElementById("category")
+                                .value,
+
+                        description:
+                            document
+                                .getElementById("description")
+                                .value
+                                .trim(),
+
+                        link:
+                            document
+                                .getElementById("link")
+                                .value
+                                .trim(),
+
+                        votes: 0,
+
+                        default: false
+
+                    };
+
+
+                    /*
+                        Add new resource.
+                    */
+
+                    resources.push(
+                        newResource
+                    );
+
+
+                    /*
+                        Save it.
+                    */
+
+                    saveResources();
+
+
+                    /*
+                        Show it.
+                    */
+
+                    displayResources();
+
+
+                    /*
+                        Clear form.
+                    */
+
+                    this.reset();
+
+
+                    /*
+                        Scroll to resource section.
+                    */
+
+                    document
+                        .getElementById("resources")
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+
+                    alert(
+                        "Resource added successfully!"
+                    );
+
+                }
+            );
+
+
+        /* ================= REMEMBER THEME ================= */
+
+        if (
+            localStorage.getItem("learningTheme")
+            === "dark"
+        ) {
+
+            document.body.classList.add(
+                "dark"
+            );
+
+
+            document
+                .getElementById("themeButton")
+                .textContent =
+                    "☀️ Light";
+
+        }
+
+
+        /* ================= FIRST PAGE LOAD ================= */
+
+        displayResources();
+
+    </script>
+
+</body>
+
+</html>
